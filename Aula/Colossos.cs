@@ -6,46 +6,60 @@ namespace Aula
 {
     class Colossos
     {
-        private string nome;
-        private int numConta;
-        private double deposito;
+        private string Nome;
+        public int NumConta;
+        private double Deposito;
 
-        public Colossos(string nome, int numConta, double deposito)
+
+        public string nome
+        {
+            get { return Nome; }
+            set { Nome = value; }
+        }
+        public int numConta
+        {
+            get { return NumConta; }
+            set { NumConta = value; }
+        }
+        public double deposito
+        {
+            get { return Deposito; }
+            set { Deposito = value; }
+        }
+
+        public Colossos(int numConta, string nome)
         {
             Nome = nome;
             NumConta = numConta;
+            
+        }
+
+        public Colossos(int numConta, string nome, double deposito) : this (numConta, nome)
+        {
             Deposito = deposito;
         }
 
-        public string Nome
+       
+
+        public void SomaDeposito(double quantia)
         {
-            get { return nome; }
-            set { nome = value; }
-        }
-        public int NumConta
-        {
-            get { return numConta; }
-            set { numConta = value; }
-        }
-        public double Deposito
-        {
-            get { return deposito; }
-            set { deposito = value; }
+             Deposito += quantia;
         }
 
-        
-
+        public void Saque(double quantia)
+        {
+            Deposito -= quantia + 5.0;
+        }
+       
 
         public override string ToString()
         {
             return "Conta: "
-                + numConta
-                + ", "
-                + "Titular: "
-                + nome
-                + ", "
-                + "Saldo: $ "
-                + deposito.ToString("F2");
+                + NumConta                
+                + ", Titular: "
+                + Nome                
+                + ", Saldo: $ "
+                + Deposito.ToString("F2");
         }
     }
 }
